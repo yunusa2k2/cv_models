@@ -8,6 +8,7 @@ Created on Thu Jul 27 18:58:38 2023
 import torch
 import torch.nn as nn
 
+# AlexNet model in PyTorch with 1000 classes 
 class AlexNet(nn.Module):
     def __init__(self, num_classes=1000):
         super(AlexNet, self).__init__()
@@ -44,13 +45,11 @@ class AlexNet(nn.Module):
         x = self.classifier(x)
         return x
 
-def Alex():
-    return AlexNet()
 
-# uncomment to test model with a sample random input (1, 3, 224, 224)
+# uncomment to test model with a sample random input tensor
 # model should print (batch, no_class)
 # ================================
-# x = torch.randn(1, 3, 224, 224)
-# model = Alex()(x)
-# print(model.shape)
+x = torch.randn(1, 3, 224, 224)
+model = AlexNet()(x)
+print(model.shape)
 # ================================
